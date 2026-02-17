@@ -1,30 +1,22 @@
-This code allows users to control media playback such as spotify, youtube and apple music snapping their fingers,
-which the program detects through audio input. When a snap is detected, it sends a command to pause or play the media.
+# Finger Snap Detection
 
-Imports Necessary Libraries
+## Overview
+Detects finger snaps through audio input and toggles media playback (e.g., Spotify, YouTube, Apple Music) using simulated key presses.
 
-Uses pyaudio for microphone input, numpy for audio processing, and pyautogui to simulate media key presses.
-Defines Audio Processing Constants
+## Motivation
+Gesture-based media control adds a touchless way to interact with apps using a simple snap.
 
-Sets CHUNK (audio buffer size), FORMAT (32-bit float), CHANNELS (mono), RATE (44.1 kHz), and THRESHOLD (snap detection sensitivity).
-Creates a Snap Detection Function
+## How It Works
+- Captures microphone audio using PyAudio.
+- Computes amplitude to detect when a snap occurs.
+- Uses PyAutoGUI to send `playpause` key events.
 
-Computes the mean absolute amplitude of the audio signal and compares it to THRESHOLD.
-Initializes PyAudio
+## Demo
+Add screenshots or a GIF here.
 
-Creates a PyAudio object to manage audio input.
-Opens a Microphone Stream
+## Requirements
+See `requirements.txt`
 
-Captures real-time audio from the microphone with specified settings.
-Reads Audio Continuously in a Loop
-
-Converts raw microphone input into a NumPy array for processing.
-Detects a Snap Sound
-
-If the computed amplitude exceeds the threshold, it registers as a snap.
-Simulates a Play/Pause Keypress
-
-Uses pyautogui.press('playpause') to control media playback.
-Prints Feedback on Detection
-
-Displays "Snap detected! Pausing media..." in the console when a snap is registered.
+## Installation
+```bash
+pip install -r requirements.txt
